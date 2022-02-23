@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 
 // security packages
-const helmer = require('helment');
+const helmet = require('helmet');
 const cors = require('cors');
 const xss = require('xss-clean');
 const rateLimit = require('express-rate-limit');
@@ -22,7 +22,7 @@ const errorHandlerMiddleware = require('./middleware/error-handler');
 
 app.use(express.json());
 app.use(helmet());
-app.use(corse());
+app.use(cors());
 app.use(xss());
 app.use(rateLimit({ windowsMs: 60 * 1000, max: 60 }));
 
